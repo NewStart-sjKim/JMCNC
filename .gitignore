@@ -21,3 +21,6 @@ serviceAccountKey.json
 *.pem
 npm-debug.log*
 next-env.d.ts
+
+.vercel
+.env*

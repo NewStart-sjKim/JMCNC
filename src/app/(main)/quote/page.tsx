@@ -20,7 +20,7 @@ export default function QuotePage() {
                 CAD 도면과 프로젝트 상세 내용을 보내주시면, 확인 후 담당자가
                 연락드립니다.
                 <br/>
-                "도면이 없으신 경우, 첨부 없이 제출가능합니다."
+                도면이 없으신 경우, 첨부 없이 제출가능합니다.
               </p>
 
               {/* <div className="flex flex-col gap-0 border-l border-outline-variant ml-2">
