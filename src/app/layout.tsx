@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "sw
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "PRECISION CNC",
+  title: "JM정공",
   description: "정밀 CNC 가공 전문 업체",
 };
 

@@ -12,7 +12,9 @@ export interface Notice {
   id: string;
   title: string;
   content: string;
+  category: "Notice" | "Tech Update" | "Holiday" | "Urgent";
   isPinned: boolean;
+  views: number;
   createdAt: string;
 }
 

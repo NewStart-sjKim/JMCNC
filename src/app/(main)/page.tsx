@@ -1,24 +1,29 @@
+import { QuoteForm } from "@/components/form/QuoteForm";
+
 // TODO: 이미지(lh3.googleusercontent.com)는 Stitch 목업의 임시 placeholder.
 // 실제 촬영 이미지로 교체 후 next.config.js remotePatterns 정리 필요.
-// TODO: 견적 폼은 아직 정적 마크업 — React Hook Form + Zod, /api/inquiries 연동 필요 (PROJECT.md 아키텍처 원칙 3, 5).
 export default function HomePage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative w-full h-[600px] overflow-hidden bg-surface-container-highest">
+      {/* Hero Section — Products/About 배너와 동일한 "어두운 그라데이션 오버레이 + 흰 글씨" 톤 통일 */}
+      <section className="relative w-full h-[600px] overflow-hidden bg-primary-container">
         <div className="absolute inset-0 z-0">
           <img
-            className="object-cover w-full h-full opacity-80 mix-blend-multiply"
+            className="object-cover w-full h-full opacity-60"
             alt="정밀 CNC 밀링 머신이 금속을 가공하는 모습"
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGYObKiESDUD1GmJPR6roA0DMifWvaOTcIuvFnjO5hYp5oHSQR1e66SDn7rEJktBfTj_OE5JOXGAtpnW1DL2AmDoIrY0zN7OCtNHa7t-lVXTyY_LaAirMph6aORLdjqxfV3DHg63rrJ2gtVvpKJZRxxX32ds1TBhxnlIuXVi6FHrIh5NOsR44ZEm4654Azhb8FmRyxx3XXXRGhVUmKwawAREok9H1qi2aWO6dNTVJuWWtqM5mgvi6s"
           />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-container via-primary-container/50 to-transparent" />
         </div>
         <div className="relative z-10 flex flex-col items-start justify-center h-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-          <h1 className="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary max-w-2xl bg-surface/80 p-6 backdrop-blur-sm border border-outline-variant">
-            Precision Engineering for Global Industry
+          <span className="text-on-tertiary-container font-label-sm tracking-widest uppercase mb-4 block">
+            Precision Manufacturing
+          </span>
+          <h1 className="font-headline-xl text-headline-xl text-white max-w-2xl">
+            20년의 노하우, 결과로 증명합니다.
           </h1>
-          <p className="font-body-lg text-body-lg text-on-surface-variant mt-4 max-w-xl bg-surface/80 p-4 backdrop-blur-sm border border-outline-variant">
-            초정밀 가공 기술로 글로벌 산업의 기준을 제시합니다.
+          <p className="font-body-lg text-body-lg text-on-primary-container mt-4 max-w-xl">
+            오랜 경험을 바탕으로 어떤 복잡한 도면도 정밀하고 완벽하게 구현해냅니다.
           </p>
         </div>
       </section>
@@ -27,10 +32,10 @@ export default function HomePage() {
       <section className="py-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
         <div className="mb-12">
           <h2 className="font-headline-lg text-headline-lg text-primary geist-font">
-            Core Capabilities
+            보유 설비
           </h2>
           <p className="font-body-md text-body-md text-secondary mt-2">
-            최고 수준의 설비와 기술력으로 완벽한 품질을 보장합니다.
+            고객이 만족할 제품을 원하는 납기에 맞춰 최상의 상태로 납품합니다.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
@@ -52,10 +57,12 @@ export default function HomePage() {
             imageAlt="클린룸에서 정밀 부품을 조립하는 모습"
             imageSrc="https://lh3.googleusercontent.com/aida-public/AB6AXuCjj79t9WAf6NIvh29eC1xZCDHYS5BY9pFxhsvOCgFQ2W2T8MsC-HOrTyzJPD-xyUVrpb213E6bfTNa0ZhojpWz2EBJei4e0f1hYHJ0hUbxJllTgd85mnzk1CEiGFD7nJfv51dra5_kJ3OtZFpnTmNYw8y3saUF5ZcgZ6JwDqbI7g_uUhZ9Xp-cdVeE-rp4i-UGIFNtxQnmUlfVPKDtAT0VhrxE8-YdNRmpGCl44ZmeP-jn0mDp5wiV"
           />
+          
         </div>
+        
       </section>
 
-      {/* Quotation Form */}
+      {/* Quotation Form — /quote 페이지와 동일한 QuoteForm 컴포넌트 재사용 (통일) */}
       <section className="bg-surface-container-low py-section-gap border-y border-outline-variant">
         <div className="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop">
           <div className="mb-10 text-center">
@@ -66,73 +73,7 @@ export default function HomePage() {
               프로젝트 도면을 첨부해 주시면 신속하게 견적을 안내해 드립니다.
             </p>
           </div>
-          <form className="bg-surface border border-outline-variant p-8 rounded shadow-sm">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <div>
-                <label className="block font-label-sm text-label-sm text-primary mb-2 uppercase">
-                  Name
-                </label>
-                <input
-                  className="w-full bg-surface-container-highest border border-outline-variant rounded p-3 font-body-md text-body-md text-primary focus:border-primary focus:ring-0 transition-colors"
-                  placeholder="담당자 성함"
-                  type="text"
-                  name="name"
-                />
-              </div>
-              <div>
-                <label className="block font-label-sm text-label-sm text-primary mb-2 uppercase">
-                  Company
-                </label>
-                <input
-                  className="w-full bg-surface-container-highest border border-outline-variant rounded p-3 font-body-md text-body-md text-primary focus:border-primary focus:ring-0 transition-colors"
-                  placeholder="회사명"
-                  type="text"
-                  name="company"
-                />
-              </div>
-            </div>
-            <div className="mb-6">
-              <label className="block font-label-sm text-label-sm text-primary mb-2 uppercase">
-                Email
-              </label>
-              <input
-                className="w-full bg-surface-container-highest border border-outline-variant rounded p-3 font-body-md text-body-md text-primary focus:border-primary focus:ring-0 transition-colors"
-                placeholder="이메일 주소"
-                type="email"
-                name="email"
-              />
-            </div>
-            <div className="mb-6">
-              <label className="block font-label-sm text-label-sm text-primary mb-2 uppercase">
-                Project Details
-              </label>
-              <textarea
-                className="w-full bg-surface-container-highest border border-outline-variant rounded p-3 font-body-md text-body-md text-primary focus:border-primary focus:ring-0 transition-colors"
-                placeholder="가공 소재, 수량, 납기 등 상세 내용을 입력해주세요."
-                rows={4}
-                name="message"
-              />
-            </div>
-            <div className="mb-8">
-              <label className="block font-label-sm text-label-sm text-primary mb-2 uppercase">
-                File Upload (CAD/PDF)
-              </label>
-              <div className="border-2 border-dashed border-outline-variant rounded p-8 text-center bg-surface-container-lowest hover:bg-surface-container-highest transition-colors cursor-pointer">
-                <span className="material-symbols-outlined text-[32px] text-secondary mb-2 block">
-                  upload_file
-                </span>
-                <span className="font-body-md text-body-md text-secondary">
-                  클릭하여 파일을 업로드하거나 드래그 앤 드롭 하세요.
-                </span>
-              </div>
-            </div>
-            <button
-              className="w-full bg-on-tertiary-container text-on-primary font-headline-md text-[18px] py-4 rounded hover:bg-tertiary-container transition-colors shadow-[0_2px_4px_rgba(0,0,0,0.1)] active:shadow-none active:translate-y-[1px]"
-              type="button"
-            >
-              Submit Request
-            </button>
-          </form>
+          <QuoteForm />
         </div>
       </section>
     </>

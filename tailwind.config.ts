@@ -3,7 +3,6 @@ import type { Config } from "tailwindcss";
 // 컬러/타이포/spacing 토큰은 Stitch가 생성한 project_brief_precision_cnc.md 기반 목업의
 // tailwind.config 값을 그대로 이식한 것 (Material 3 스타일 시맨틱 네이밍)
 const config: Config = {
-  darkMode: "class",
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
@@ -55,6 +54,7 @@ const config: Config = {
         "inverse-on-surface": "#edf1f5",
         "on-secondary-fixed": "#0b1c30",
         "on-secondary-fixed-variant": "#38485d",
+        "safety-orange": "#FF6B00",
       },
       borderRadius: {
         DEFAULT: "0.125rem",
@@ -73,22 +73,22 @@ const config: Config = {
       fontFamily: {
         "body-lg": ["var(--font-inter)"],
         "technical-data": ["var(--font-geist)"],
-        "headline-xl-mobile": ["var(--font-geist)"],
         "headline-xl": ["var(--font-geist)"],
         "headline-lg": ["var(--font-geist)"],
         "headline-md": ["var(--font-geist)"],
         "body-md": ["var(--font-inter)"],
         "label-sm": ["var(--font-geist)"],
       },
+      // fontSize는 전부 clamp()로 유동 타이포그래피 처리 — 375px~1280px 뷰포트 사이에서
+      // min~max 값 사이를 연속적으로 스케일링 (브레이크포인트에서 뚝뚝 끊기지 않음)
       fontSize: {
-        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
-        "technical-data": ["14px", { lineHeight: "1.4", fontWeight: "400" }],
-        "headline-xl-mobile": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
-        "headline-xl": ["48px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
-        "headline-lg": ["32px", { lineHeight: "1.2", fontWeight: "600" }],
-        "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
-        "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
-        "label-sm": ["12px", { lineHeight: "1.0", letterSpacing: "0.05em", fontWeight: "500" }],
+        "body-lg": ["clamp(1rem, 0.948rem + 0.22vw, 1.125rem)", { lineHeight: "1.6", fontWeight: "400" }],
+        "technical-data": ["clamp(0.75rem, 0.698rem + 0.22vw, 0.875rem)", { lineHeight: "1.4", fontWeight: "400" }],
+        "headline-xl": ["clamp(2rem, 1.586rem + 1.77vw, 3rem)", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "headline-lg": ["clamp(1.5rem, 1.293rem + 0.88vw, 2rem)", { lineHeight: "1.2", fontWeight: "600" }],
+        "headline-md": ["clamp(1.25rem, 1.146rem + 0.44vw, 1.5rem)", { lineHeight: "1.3", fontWeight: "600" }],
+        "body-md": ["clamp(0.875rem, 0.823rem + 0.22vw, 1rem)", { lineHeight: "1.5", fontWeight: "400" }],
+        "label-sm": ["clamp(0.625rem, 0.573rem + 0.22vw, 0.75rem)", { lineHeight: "1.0", letterSpacing: "0.05em", fontWeight: "500" }],
       },
     },
   },

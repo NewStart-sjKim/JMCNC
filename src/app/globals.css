@@ -14,3 +14,34 @@ h6,
 .geist-font {
   font-family: var(--font-geist), sans-serif;
 }
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+/* 기술적/산업적 느낌의 배경 그리드 패턴 (Quote 페이지 등 특정 섹션에만 적용) */
+.industrial-grid {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* 점 패턴 배경 (Products 페이지 카테고리 섹션) — .industrial-grid와 이름 충돌 방지를 위해 분리 */
+.industrial-dots {
+  background-image: radial-gradient(circle, #c6c6cd 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Swiper 기본 파란색 대신 디자인 토큰 색상으로 오버라이드 (Products 페이지 제품 슬라이더) */
+.product-swiper {
+  --swiper-navigation-color: #000000;
+  --swiper-navigation-size: 22px;
+  --swiper-pagination-color: #ff6b00;
+  --swiper-pagination-bullet-inactive-color: #c6c6cd;
+  --swiper-pagination-bullet-inactive-opacity: 1;
+  /* 화살표를 슬라이드(이미지) 바깥 padding 영역으로 밀어냄 */
+  --swiper-navigation-sides-offset: -36px;
+  /* Swiper 기본값(overflow: hidden)이 바깥으로 뺀 화살표까지 잘라내서 보이게 풀어줌
+     (swiper/css가 나중에 로드되며 동일 특이도로 덮어써서 !important 필요) */
+  overflow: visible !important;
+}
