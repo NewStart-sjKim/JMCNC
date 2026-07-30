@@ -53,12 +53,12 @@ export function Header() {
             })}
           </nav>
 
-          <a
+          {/* <a
             href="/quote"
             className="bg-safety-orange text-white font-label-sm text-label-sm px-6 py-3 rounded-sm hover:brightness-110 active:scale-95 transition-all flex items-center gap-2"
           >
             GET QUOTE
-          </a>
+          </a> */}
         </div>
       </header>
 
